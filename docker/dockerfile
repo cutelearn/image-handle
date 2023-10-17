@@ -1,0 +1,15 @@
+# 使用基礎的 ubuntu 映像作為基礎
+FROM ubuntu:latest
+
+# 安裝必要的工具和編譯器
+RUN apt-get update && \
+    apt-get install -y build-essential gcc gdb vim
+
+# 設置工作目錄
+WORKDIR /workspace
+
+# 設置環境變數，這裡是為了讓容器內的編輯器 vim 正常運作
+ENV TERM=xterm-256color
+
+# 運行一個命令來保持容器運行
+CMD [ "bash" ]
